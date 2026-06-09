@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -37,19 +36,6 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ForgotPasswordActivity.class)));
         findViewById(R.id.textSignUp).setOnClickListener(v ->
                 startActivity(new Intent(this, SignUpActivity.class)));
-        findViewById(R.id.rootSignIn).setOnTouchListener((view, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_UP && isSignUpArea(event, view)) {
-                startActivity(new Intent(this, SignUpActivity.class));
-                return true;
-            }
-            return false;
-        });
-    }
-
-    private boolean isSignUpArea(MotionEvent event, View root) {
-        float xRatio = event.getX() / root.getWidth();
-        float yRatio = event.getY() / root.getHeight();
-        return xRatio >= 0.2f && yRatio >= 0.68f && yRatio <= 0.9f;
     }
 
     private void applyWhiteSystemBars() {
