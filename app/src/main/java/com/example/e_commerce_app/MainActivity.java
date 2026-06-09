@@ -7,15 +7,10 @@ import android.view.Window;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import com.example.e_commerce_app.fragments.CartFragment;
-import com.example.e_commerce_app.fragments.ChatFragment;
-import com.example.e_commerce_app.fragments.HomeFragment;
-import com.example.e_commerce_app.fragments.OrdersFragment;
-import com.example.e_commerce_app.fragments.ProfileFragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 public class MainActivity extends AppCompatActivity {
+    private ViewPager2 viewPager;
     private LinearLayout navHome;
     private LinearLayout navOrders;
     private LinearLayout navChat;
@@ -28,29 +23,47 @@ public class MainActivity extends AppCompatActivity {
         applySystemBars();
         setContentView(R.layout.activity_main);
 
+        viewPager = findViewById(R.id.viewPager);
         navHome = findViewById(R.id.navHome);
         navOrders = findViewById(R.id.navOrders);
         navChat = findViewById(R.id.navChat);
         navCart = findViewById(R.id.navCart);
         navProfile = findViewById(R.id.navProfile);
 
-        navHome.setOnClickListener(v -> showFragment(new HomeFragment(), navHome));
-        navOrders.setOnClickListener(v -> showFragment(new OrdersFragment(), navOrders));
-        navChat.setOnClickListener(v -> showFragment(new ChatFragment(), navChat));
-        navCart.setOnClickListener(v -> showFragment(new CartFragment(), navCart));
-        navProfile.setOnClickListener(v -> showFragment(new ProfileFragment(), navProfile));
+        viewPager.setAdapter(new TabAdapter(this));
+        viewPager.setUserInputEnabled(false);
 
-        if (savedInstanceState == null) {
-            showFragment(new HomeFragment(), navHome);
-        }
+        navHome.setOnClickListener(v -> selectTab(0));
+        navOrders.setOnClickListener(v -> selectTab(1));
+        navChat.setOnClickListener(v -> selectTab(2));
+        navCart.setOnClickListener(v -> selectTab(3));
+        navProfile.setOnClickListener(v -> selectTab(4));
+
+        selectTab(0);
     }
 
-    private void showFragment(Fragment fragment, LinearLayout selectedNav) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragmentContainer, fragment)
-                .commit();
-        updateSelectedNav(selectedNav);
+    private void selectTab(int position) {
+        viewPager.setCurrentItem(position, false);
+        switch (position) {
+            case 0:
+                updateSelectedNav(navHome);
+                break;
+            case 1:
+                updateSelectedNav(navOrders);
+                break;
+            case 2:
+                updateSelectedNav(navChat);
+                break;
+            case 3:
+                updateSelectedNav(navCart);
+                break;
+            case 4:
+                updateSelectedNav(navProfile);
+                break;
+            default:
+                updateSelectedNav(navHome);
+                break;
+        }
     }
 
     private void updateSelectedNav(LinearLayout selectedNav) {
