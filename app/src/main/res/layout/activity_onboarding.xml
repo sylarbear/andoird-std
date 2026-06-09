@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootOnboarding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imageScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/screen_onboarding_1" />
+
+    <View
+        android:id="@+id/hotspotSkip"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_gravity="top|end" />
+
+    <View
+        android:id="@+id/hotspotPrev"
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        android:layout_gravity="bottom|start" />
+
+    <View
+        android:id="@+id/hotspotNext"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_gravity="bottom|end" />
+</FrameLayout>

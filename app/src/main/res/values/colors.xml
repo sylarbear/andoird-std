@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="stylish_primary">#F83758</color>
+    <color name="stylish_primary_dark">#D92D4C</color>
+    <color name="stylish_text">#111111</color>
+    <color name="stylish_muted">#A8A8A8</color>
+    <color name="stylish_field">#F3F3F3</color>
+    <color name="stylish_field_stroke">#BDBDBD</color>
+    <color name="stylish_navy">#17223B</color>
+    <color name="stylish_google">#EA4335</color>
+    <color name="stylish_facebook">#4267B2</color>
+</resources>
