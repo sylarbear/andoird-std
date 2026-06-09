@@ -3,11 +3,8 @@ package com.example.e_commerce_app;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,19 +15,9 @@ public class SignInActivity extends AppCompatActivity {
         applyWhiteSystemBars();
         setContentView(R.layout.activity_sign_in);
 
-        EditText usernameInput = findViewById(R.id.inputUsername);
-        EditText passwordInput = findViewById(R.id.inputPassword);
-
         findViewById(R.id.buttonLogin).setOnClickListener(v -> {
-            String username = usernameInput.getText().toString().trim();
-            String password = passwordInput.getText().toString().trim();
-
-            if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
-                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            Toast.makeText(this, "Login database is not implemented yet", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         });
         findViewById(R.id.textForgotPassword).setOnClickListener(v ->
                 startActivity(new Intent(this, ForgotPasswordActivity.class)));

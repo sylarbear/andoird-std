@@ -11,4 +11,6 @@
     <color name="stylish_navy">#17223B</color>
     <color name="stylish_google">#EA4335</color>
     <color name="stylish_facebook">#4267B2</color>
+    <color name="bottom_nav_pink">#FF0A5B</color>
+    <color name="screen_background">#FAFAFA</color>
 </resources>
